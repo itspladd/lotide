@@ -9,14 +9,21 @@ const assertEqual = function(actual, expected) {
   }
 };
 
-const countLetters = function() {
+const countLetters = function(stringToCount) {
   let result = {};
-
+  for (let char of stringToCount) {
+    if (result[char]) {
+      result[char]++;
+    } else {
+      result[char] = 1;
+    }
+  }
   return result;
 };
 
-//const testStr = "the quick brown fox jumped over the lazy dog";
-const testStr = "a b c";
+//const testStr = "the quick brown fox jumped over the lazy dog"; maybe don't do this one yet
+const testStr = "a b cbba";
 const resultStr = countLetters(testStr);
 
 assertEqual(resultStr.x, undefined);
+assertEqual(resultStr.b, 3);
