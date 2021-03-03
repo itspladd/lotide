@@ -21,7 +21,7 @@ const findKeyByValue = function(object, value) {
 };
 
 const bestTVShowsByGenre = {
-  sci_fi: "The Expanse",
+  sciFi: "The Expanse",
   comedy: "Crazy Ex-Girlfriend",
   drama: "Dark",
   kids: "She-Ra and the Princesses of Power"
@@ -37,9 +37,9 @@ const rocinanteCrew = {
   technician: "Clarissa Mao",
   pilot: "Alex Kamal",
   gunner: "Bobbie Draper",
-  angry_cargo: "Payne Houston" 
-}
+  angryCargo: "Payne Houston",
+};
 
-assertEqual(findKeyByValue(rocinanteCrew, "Payne Houston"), "angry_cargo");
+assertEqual(findKeyByValue(rocinanteCrew, "Payne Houston"), "angryCargo");
 assertEqual(findKeyByValue(rocinanteCrew, "Clarissa Mao"), "technician");
 assertEqual(findKeyByValue(rocinanteCrew, "Fred Johnson"), undefined);
