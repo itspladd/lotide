@@ -20,12 +20,12 @@ const assertArraysEqual = function(array1, array2) {
   } else {
     console.log("🔴🔴🔴Assertion failed: ", array1, " !== ", array2);
   }
-}
+};
 
 const without = function(source, itemsToRemove) {
   let resultArray = [];
   for (let sourceIndex in source) {
-    let removeItem = false
+    let removeItem = false;
     for (let itemToRemove of itemsToRemove) {
       if (source[sourceIndex] === itemToRemove) {
         removeItem = true;

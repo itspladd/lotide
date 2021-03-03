@@ -20,4 +20,4 @@ const assertArraysEqual = function(array1, array2) {
   } else {
     console.log("🔴🔴🔴Assertion failed: ", array1, " !== ", array2);
   }
-}
+};

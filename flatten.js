@@ -20,9 +20,9 @@ const assertArraysEqual = function(array1, array2) {
   } else {
     console.log("🔴🔴🔴Assertion failed: ", array1, " !== ", array2);
   }
-}
+};
 
-const flatten = function (arrayToFlatten) {
+const flatten = function(arrayToFlatten) {
   let flattenedArray = [];
   for (let i = 0; i < arrayToFlatten.length; i++) {
     if (Array.isArray(arrayToFlatten[i])) {
@@ -35,4 +35,4 @@ const flatten = function (arrayToFlatten) {
   }
   
   return flattenedArray;
-}
+};

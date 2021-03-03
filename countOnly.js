@@ -24,7 +24,7 @@ const countOnly = function(arrayToCount, countableItems) {
   }
 
   return result;
-}
+};
 
 const firstNames = [
   "Karl",

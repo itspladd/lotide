@@ -20,17 +20,17 @@ const assertArraysEqual = function(array1, array2) {
   } else {
     console.log("🔴🔴🔴Assertion failed: ", array1, " !== ", array2);
   }
-}
+};
 
-const middle = function (array) {
+const middle = function(array) {
   //Return an empty array if the input is too short or if there's no input
   if (!array || array.length < 3) {
     return [];
   }
   //Divide the length of the array by two and round down to find either the middle index (for an odd-numbered array) or the index right after the middle (for an even-numbered array)
   let middleInt = Math.floor(array.length / 2);
-  return (array.length % 2) ? [array[middleInt]] : [array[middleInt-1], array[middleInt]];
-}
+  return (array.length % 2) ? [array[middleInt]] : [array[middleInt - 1], array[middleInt]];
+};
 
 //Test cases
 /*assertArraysEqual(middle([0,1,2,3,4,5]), [2,3]);
