@@ -27,9 +27,9 @@ const letterPositions = function(inputStr) {
   const noSpaces = inputStr.split(" ").join("");
   for (let index in noSpaces) {
     if (result[noSpaces[index]]) {
-      result[noSpaces[index]].push(index);
+      result[noSpaces[index]].push(Number(index));
     } else {
-      result[noSpaces[index]] = [index];
+      result[noSpaces[index]] = [Number(index)];
     }
   }
   console.log(result);
