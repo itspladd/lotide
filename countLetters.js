@@ -10,5 +10,13 @@ const assertEqual = function(actual, expected) {
 };
 
 const countLetters = function() {
+  let result = {};
 
+  return result;
 };
+
+//const testStr = "the quick brown fox jumped over the lazy dog";
+const testStr = "a b c";
+const resultStr = countLetters(testStr);
+
+assertEqual(resultStr.x, undefined);
