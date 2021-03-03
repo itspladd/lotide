@@ -41,3 +41,5 @@ const testResult = letterPositions(testStr);
 assertArraysEqual(testResult.a, [0]);
 assertArraysEqual(testResult.o, [3, 7]);
 assertArraysEqual(testResult.z, [9, 10, 11]);
+
+//assertArraysEqual(testResult.f, undefined);
