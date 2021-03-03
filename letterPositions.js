@@ -25,13 +25,19 @@ const assertArraysEqual = function(array1, array2) {
 const letterPositions = function(inputStr) {
   const result = {};
   const noSpaces = inputStr.split(" ").join("");
-  console.log(noSpaces);
+  for (let index in noSpaces) {
+    if (result[noSpaces[index]]) {
+      result[noSpaces[index]].push(index);
+    } else {
+      result[noSpaces[index]] = [index];
+    }
+  }
+  console.log(result);
   return result;
 };
 
 let testStr = "ae io uy boyzzz";
 const testResult = letterPositions(testStr);
-//These tests can't run until we get arrays in our output object.
-//assertArraysEqual(testResult.a, [0]);
-//assertArraysEqual(testResult.o, [3, 7]);
-//assertArraysEqual(testResult.z, [9, 10, 11]);
+assertArraysEqual(testResult.a, [0]);
+assertArraysEqual(testResult.o, [3, 7]);
+assertArraysEqual(testResult.z, [9, 10, 11]);
