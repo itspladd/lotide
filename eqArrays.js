@@ -10,6 +10,10 @@ const assertEqual = function(actual, expected) {
 };
 
 const eqArrays = function(array1, array2) {
+  //If one or the other isn't an array, return undefined.
+  if (!(array1 instanceof Array) || !(array2 instanceof Array)) {
+    return undefined;
+  }
   // If the two arrays aren't of the same length, return false before we iterate.
   if (array1.length !== array2.length) {
     return false;
@@ -30,6 +34,12 @@ assertEqual(eqArrays([1, 2, 3], ['1', '2', '3']), false);
 assertEqual(eqArrays([1, 2, 3], [1, 2, 5]), false);
 assertEqual(eqArrays([1, 2, 3], [3, 2, 3]), false);
 assertEqual(eqArrays([1, 2, 3], [1, 2, 3]), true);
+
+//Tests for non-array values.
+assertEqual(eqArrays(1, [1]), undefined);
+assertEqual(eqArrays([1], 1), undefined);
+assertEqual(eqArrays("a", "b"), undefined);
+
 
 // Tests for nested arrays or arrays of objects. These should fail until the function is expanded.
 assertEqual(eqArrays([1, 2, [3]], [1, 2, [3]]), true);
