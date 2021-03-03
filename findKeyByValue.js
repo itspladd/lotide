@@ -10,7 +10,14 @@ const assertEqual = function(actual, expected) {
 };
 
 const findKeyByValue = function(object, value) {
+  const keys = Object.keys(object);
+  for (let key of keys) {
+    if (object[key] === value) {
+      return key;
+    }
+  }
 
+  return undefined;
 };
 
 const bestTVShowsByGenre = {
@@ -33,6 +40,6 @@ const rocinanteCrew = {
   angry_cargo: "Payne Houston" 
 }
 
-assertEqual(findKeyByValue(rocinanteCrew, "Payne Houston"), "angry-cargo");
+assertEqual(findKeyByValue(rocinanteCrew, "Payne Houston"), "angry_cargo");
 assertEqual(findKeyByValue(rocinanteCrew, "Clarissa Mao"), "technician");
 assertEqual(findKeyByValue(rocinanteCrew, "Fred Johnson"), undefined);
