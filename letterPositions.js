@@ -24,10 +24,14 @@ const assertArraysEqual = function(array1, array2) {
 
 const letterPositions = function(inputStr) {
   const result = {};
-
+  const noSpaces = inputStr.split(" ").join("");
+  console.log(noSpaces);
   return result;
 };
 
-let testStr = "ae io uy";
+let testStr = "ae io uy boyzzz";
 const testResult = letterPositions(testStr);
-assertEqual(testResult.z, undefined);
+//These tests can't run until we get arrays in our output object.
+//assertArraysEqual(testResult.a, [0]);
+//assertArraysEqual(testResult.o, [3, 7]);
+//assertArraysEqual(testResult.z, [9, 10, 11]);
