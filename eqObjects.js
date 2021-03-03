@@ -19,7 +19,7 @@ const eqObjects = function(object1, object2) {
 
   for (let key1 of obj1Keys) {
     let foundMatch = false;
-    for(let key2 of obj2Keys) {
+    for (let key2 of obj2Keys) {
       if (key1 === key2 && object1[key1] === object2[key2]) {
         foundMatch = true;
       }
