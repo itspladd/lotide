@@ -31,4 +31,10 @@ const middle = function (array) {
   return (array.length % 2) ? [array[middleInt]] : [array[middleInt-1], array[middleInt]];
 }
 
-assertArraysEqual(middle([0,1,2,3,4,5]), [2,3]);
+//Test cases
+/* assertArraysEqual(middle([0,1,2,3,4,5]), [2,3]);
+assertArraysEqual(middle([0,3,4,5]), [3,4]);
+assertArraysEqual(middle(['0','1','2','3','4','5']), ['2','3']);
+assertArraysEqual(middle([0,1,3,4,5]), [3]);
+assertArraysEqual(middle([0]), []);
+assertArraysEqual(middle([]), []); */
