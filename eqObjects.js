@@ -28,21 +28,15 @@ const eqArrays = function(array1, array2) {
 const eqObjects = function(object1, object2) {
   const obj1Keys = Object.keys(object1);
   const obj2Keys = Object.keys(object2);
-
+  //If they're not the same size, then they're defintely not equal.
   if (obj1Keys.length !== obj2Keys.length) {
     return false;
   }
 
+  //Assume that the objects match. Return false as soon as we find a single difference.
   for (let key1 of obj1Keys) {
-    let foundMatch = false;
-    for (let key2 of obj2Keys) {
-      if (key1 === key2 && object1[key1] === object2[key2]) {
-        foundMatch = true;
-      }
-    }
-    if (!foundMatch) {
+    if (object1[key1] !== object2[key1])
       return false;
-    }
   }
 
   return true;
