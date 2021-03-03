@@ -10,6 +10,10 @@ const assertEqual = function(actual, expected) {
 };
 
 const eqArrays = function(array1, array2) {
+  //If one or the other isn't an array, return undefined.
+  if (!(array1 instanceof Array) || !(array2 instanceof Array)) {
+    return undefined;
+  }
   // If the two arrays aren't of the same length, return false before we iterate.
   if (array1.length !== array2.length) {
     return false;
@@ -34,9 +38,13 @@ const eqObjects = function(object1, object2) {
   }
 
   //Assume that the objects match. Return false as soon as we find a single difference.
+  //Since the keys must be identical, then we must be able to access object2 data with the key from object1.
+  //And since the values must be identical, then the value at object2[key1] must be the same as the value at object1[key1].
+  //So if they're not the same, the objects aren't equal.
   for (let key1 of obj1Keys) {
-    if (object1[key1] !== object2[key1])
+    if (object1[key1] !== object2[key1] && !eqArrays(object1[key1], object2[key1])) {
       return false;
+    }
   }
 
   return true;
@@ -70,3 +78,10 @@ assertEqual(eqObjects(ba, ab), true);
 assertEqual(eqObjects(abInt, ba), false);
 assertEqual(eqObjects(abInt, abcInt), false);
 assertEqual(eqObjects(rocinanteCrew, rocinanteCrewSpoilers), false);
+
+const cd = { c: "1", d: ["2", 3] };
+const dc = { d: ["2", 3], c: "1" };
+assertEqual(eqObjects(cd, dc), true);
+
+const cd2 = { c: "1", d: ["2", 3, 4] };
+assertEqual(eqObjects(cd, cd2), false);
