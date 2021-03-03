@@ -25,11 +25,11 @@ const assertArraysEqual = function(array1, array2) {
 const letterPositions = function(inputStr) {
   const result = {};
   const noSpaces = inputStr.split(" ").join("");
-  for (let index in noSpaces) {
-    if (result[noSpaces[index]]) {
-      result[noSpaces[index]].push(Number(index));
+  for (let i = 0; i < noSpaces.length; i++) {
+    if (result[noSpaces[i]]) {
+      result[noSpaces[i]].push(i);
     } else {
-      result[noSpaces[index]] = [Number(index)];
+      result[noSpaces[i]] = [i];
     }
   }
   console.log(result);
