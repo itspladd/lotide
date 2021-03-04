@@ -25,21 +25,21 @@ const assertArraysEqual = function(array1, array2) {
 const takeUntil = function(array, callback) {
   const result = [];
   for (let item of array) {
-    if (!callback(item)) {
-      result.push(item);
-    } else {
+    if (callback(item)) {
       return result;
+    } else {
+      result.push(item);
     }
   }
 };
 
 //Passing tests:
-/* const test1 = [1, 2, 3, 4, 2, 5, 1000, 6, 7, 8, 3];
+const test1 = [1, 2, 3, 4, 2, 5, 1000, 6, 7, 8, 3];
 const test2 = ["please", "save", "me", "from", "the", "bee", "movie", "script", "According to all known laws of aviation, there is no way a bee should be able to fly."];
 
 assertArraysEqual(takeUntil(test1, x => x >= 1000), [1,2,3,4,2,5]);
 assertArraysEqual(takeUntil(test2, x => x === "According to all known laws of aviation, there is no way a bee should be able to fly."), ["please", "save", "me", "from", "the", "bee", "movie", "script"]);
- */
+
 
 //Failing tests:
 //This test will fail until eqArrays can handle arrays of objects.
