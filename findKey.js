@@ -17,7 +17,7 @@ const findKey = function(object, callback) {
   }
 };
 
-const test1 = { a: "1", b: "2", c: "3"};
+const test1 = { a: "1", b: "c", c: "3"};
 const test2 = { a: 1, b: 3, c: 2};
 const test3 = { "c2here": { c: 2 }, "a3here": { a: 3 }, "d6here": { d: 6 } };
 
