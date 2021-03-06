@@ -36,19 +36,31 @@ const eqObjects = function(object1, object2) {
   if (obj1Keys.length !== obj2Keys.length) {
     return false;
   }
-
   //Assume that the objects match. Return false as soon as we find a single difference.
   //Since the keys must be identical, then we must be able to access object2 data with the key from object1.
-  //And since the values must be identical, then the value at object2[key1] must be the same as the value at object1[key1].
+  //And since the values must be identical, then the value at object2[key1] must be the same as the value at val1.
   //So if they're not the same, the objects aren't equal.
   for (let key1 of obj1Keys) {
-    if (object1[key1] !== object2[key1] && !eqArrays(object1[key1], object2[key1])) {
+    const val1 = object1[key1];
+    const val2 = object2[key1];
+
+    //Are they both non-array objects, or arrays?
+    const bothObjects = !Array.isArray(val1) && !Array.isArray(val2) && (val1 instanceof Object) && (val2 instanceof Object);
+    const bothArrays = Array.isArray(val1) && Array.isArray(val2);
+
+    if (bothObjects && !eqObjects(val1, val2)) {
+      return false;
+    } else if (bothArrays && !eqArrays(val1, val2)) {
+      return false;
+    } else if (!bothObjects && !bothArrays && val1 !== val2) {
       return false;
     }
   }
 
   return true;
 };
+
+console.log("Primitive value tests:");
 
 const rocinanteCrew = {
   captain: "James Holden",
@@ -68,20 +80,31 @@ const rocinanteCrewSpoilers = {
   angryCargo: "Payne Houston",
 };
 
+const a = {a: { a : "1" }};
+const b = {a: { a : "1" }};
 const ab = { a: "1", b: "2" };
 const ba = { b: "2", a: "1" };
 const abInt = { a: 1, b: "2" };
 const abcInt = { a: 1, b: "2", c: 1 };
 
+assertEqual(eqObjects(a, b), true);
 assertEqual(eqObjects(ab, ba), true);
 assertEqual(eqObjects(ba, ab), true);
 assertEqual(eqObjects(abInt, ba), false);
 assertEqual(eqObjects(abInt, abcInt), false);
 assertEqual(eqObjects(rocinanteCrew, rocinanteCrewSpoilers), false);
 
+console.log("Array value tests:");
 const cd = { c: "1", d: ["2", 3] };
 const dc = { d: ["2", 3], c: "1" };
 assertEqual(eqObjects(cd, dc), true);
 
 const cd2 = { c: "1", d: ["2", 3, 4] };
 assertEqual(eqObjects(cd, cd2), false);
+
+console.log("Recursive tests:");
+
+const recur1 = { a : 1, b: { c : { d: { e: { f : { g: "2" }}}}}};
+const recur2 = { b: { c : { d: { e: { f : { g: "2" }}}}}, a : 1};
+
+assertEqual(eqObjects(recur1, recur2), true);
