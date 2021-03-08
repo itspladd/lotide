@@ -31,7 +31,7 @@ const map = (array, callback) => {
 
   return results;
 };
-/* 
+/*
 const test1 = ["ground", "control", "to", "major", "tom"];
 const test2 = [1,2,3,4,5];
 const test3 = [{ name: "bob" }, { name: "martha" }, { name: "erin" }, { name: "taylor" }];

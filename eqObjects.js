@@ -105,6 +105,6 @@ assertEqual(eqObjects(cd, cd2), false);
 console.log("Recursive tests:");
 
 const recur1 = { a : 1, b: { c : { d: { e: { f : { g: "2" }}}}}};
-const recur2 = { b: { c : { d: { e: { f : { g: "2" }}}}}, a : 1};
+const recur2 = { b: { c : { d: { e: { f : { g: "2" }}}}}, a : { b : 1 }};
 
 assertEqual(eqObjects(recur1, recur2), true);
