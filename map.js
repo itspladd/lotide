@@ -39,3 +39,5 @@ const test3 = [{ name: "bob" }, { name: "martha" }, { name: "erin" }, { name: "t
 assertArraysEqual(map(test1, x => x[1]), ["r", "o","o","a","o"]);
 assertArraysEqual(map(test2, x => x + 3), [4,5,6,7,8]);
 assertArraysEqual(map(test3, x => x.name), ["bob", "martha", "erin", "taylor", ]); */
+
+module.exports = map;

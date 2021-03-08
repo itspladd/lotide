@@ -35,3 +35,5 @@ assertEqual(resultTwo.x, 1);
 assertEqual(resultTwo.o, 4);
 assertEqual(resultTwo.h, 2);
 assertEqual(testTwo, "the quick brown fox jumped over the lazy dog");
+
+module.exports = countLetters;

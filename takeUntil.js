@@ -45,3 +45,5 @@ assertArraysEqual(takeUntil(test2, x => x === "According to all known laws of av
 //This test will fail until eqArrays can handle arrays of objects.
 //assertArraysEqual(takeUntil(test3, x => x.type === "boy"), [{ name: "Hades", type: "dad" }, { name: "Kratos", type: "dad" }]);
 //const test3 = [{ name: "Hades", type: "dad" }, { name: "Kratos", type: "dad" }, { name: "Zagreus", type: "boy" }, { name: "Joel", type: "dad" }];
+
+module.exports = takeUntil;

@@ -35,3 +35,5 @@ assertEqual(findKey(test3, x => x.a === 3), "a3here");
 }, x => x.stars === 2) // => "noma" */
 
 //console.log(test4);
+
+module.exports = findKey;

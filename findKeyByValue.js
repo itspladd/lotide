@@ -1,3 +1,5 @@
+const findKey = require("./findKey");
+
 const assertEqual = function(actual, expected) {
   const actualStr = typeof(actual) === "string" ? `"${actual}"` : actual;
   const expectedStr = typeof(expected) === "string" ? `"${expected}"` : expected;
@@ -43,3 +45,5 @@ const rocinanteCrew = {
 assertEqual(findKeyByValue(rocinanteCrew, "Payne Houston"), "angryCargo");
 assertEqual(findKeyByValue(rocinanteCrew, "Clarissa Mao"), "technician");
 assertEqual(findKeyByValue(rocinanteCrew, "Fred Johnson"), undefined);
+
+module.exports = findKeyByValue;
