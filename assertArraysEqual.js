@@ -8,4 +8,4 @@ const assertArraysEqual = function(array1, array2) {
   }
 };
 
-module.export = assertArraysEqual;
+module.exports = assertArraysEqual;
