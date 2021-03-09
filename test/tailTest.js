@@ -31,4 +31,4 @@ describe("#tail", () => {
     
     assert.equal(tail(), expected);
   });
-})
+});

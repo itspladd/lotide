@@ -1,5 +1,5 @@
 const without = function(source, itemsToRemove) {
-  if(!source || !itemsToRemove) {
+  if (!source || !itemsToRemove) {
     return [];
   }
   

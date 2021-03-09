@@ -14,4 +14,4 @@ describe("#head", () => {
   it(`returns "beans" for ["beans"]`, () => {
     assert.strictEqual(head(["beans"]),"beans");
   });
-})
+});

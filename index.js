@@ -34,4 +34,4 @@ module.exports = {
   map,
   takeUntil,
   without
-}
+};

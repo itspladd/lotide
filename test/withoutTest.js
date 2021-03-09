@@ -56,4 +56,4 @@ describe("#without", () => {
   
     assert.deepEqual(without(), expected);
   });
-})
+});

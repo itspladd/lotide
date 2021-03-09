@@ -33,7 +33,7 @@ describe('#takeUntil', () => {
   
   
     assert.deepEqual(takeUntil(input, callback), expected);
-  })
+  });
   it(`should return an empty array if no parameters are given`, () => {
     const expected = [];
   

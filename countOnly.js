@@ -1,5 +1,5 @@
 const countOnly = function(arrayToCount, countableItems) {
-  if(!arrayToCount || !countableItems) {
+  if (!arrayToCount || !countableItems) {
     return { };
   }
   
