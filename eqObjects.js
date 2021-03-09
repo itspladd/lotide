@@ -1,8 +1,11 @@
 const eqArrays = require("./eqArrays");
 
-console.log(eqArrays([1], [1]));
-
 const eqObjects = function(object1, object2) {
+  // Are they both even objects?
+  if (!(object1 instanceof Object) || !(object2 instanceof Object)) {
+    return false;
+  }
+  
   const obj1Keys = Object.keys(object1);
   const obj2Keys = Object.keys(object2);
   //If they're not the same size, then they're defintely not equal.
@@ -20,7 +23,6 @@ const eqObjects = function(object1, object2) {
     //Are they both non-array objects, or arrays?
     const bothObjects = !Array.isArray(val1) && !Array.isArray(val2) && (val1 instanceof Object) && (val2 instanceof Object);
     const bothArrays = Array.isArray(val1) && Array.isArray(val2);
-
     if (bothObjects && !eqObjects(val1, val2)) {
       return false;
     } else if (bothArrays && !eqArrays(val1, val2)) {
