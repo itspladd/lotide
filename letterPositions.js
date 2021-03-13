@@ -12,7 +12,6 @@ const letterPositions = function(inputStr) {
       result[noSpaces[i]] = [i];
     }
   }
-  console.log(result);
   return result;
 };
 
