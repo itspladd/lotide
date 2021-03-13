@@ -31,29 +31,3 @@ describe('#findKeyByValue', () => {
     assert.strictEqual(findKeyByValue(), expected);
   });
 });
-
-
-
-/* const bestTVShowsByGenre = {
-  sciFi: "The Expanse",
-  comedy: "Crazy Ex-Girlfriend",
-  drama: "Dark",
-  kids: "She-Ra and the Princesses of Power"
-};
-
-assertEqual(findKeyByValue(bestTVShowsByGenre, "Crazy Ex-Girlfriend"), "comedy");
-assertEqual(findKeyByValue(bestTVShowsByGenre, "Doctor Who"), undefined);
-
-const rocinanteCrew = {
-  captain: "James Holden",
-  xo: "Naomi Nagata",
-  mechanic: "Amos Burton",
-  technician: "Clarissa Mao",
-  pilot: "Alex Kamal",
-  gunner: "Bobbie Draper",
-  angryCargo: "Payne Houston",
-};
-
-assertEqual(findKeyByValue(rocinanteCrew, "Payne Houston"), "angryCargo");
-assertEqual(findKeyByValue(rocinanteCrew, "Clarissa Mao"), "technician");
-assertEqual(findKeyByValue(rocinanteCrew, "Fred Johnson"), undefined); */
