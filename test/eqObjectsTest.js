@@ -1,51 +1,34 @@
-const assertEqual = require('../assertEqual');
+const assert = require('chai').assert;
 const eqObjects = require('../eqObjects');
 
-console.log("Primitive value tests:");
 
-const rocinanteCrew = {
-  captain: "James Holden",
-  xo: "Naomi Nagata",
-  mechanic: "Amos Burton",
-  pilot: "Alex Kamal",
-  hitchhiker: "Josephus Miller",
-};
-
-const rocinanteCrewSpoilers = {
-  captain: "James Holden",
-  xo: "Naomi Nagata",
-  mechanic: "Amos Burton",
-  technician: "Clarissa Mao",
-  pilot: "Alex Kamal",
-  gunner: "Bobbie Draper",
-  angryCargo: "Payne Houston",
-};
-
-const a = {a: { a : "1" }};
-const b = {a: { a : "1" }};
-const ab = { a: "1", b: "2" };
-const ba = { b: "2", a: "1" };
-const abInt = { a: 1, b: "2" };
-const abcInt = { a: 1, b: "2", c: 1 };
-
-assertEqual(eqObjects(a, b), true);
-assertEqual(eqObjects(ab, ba), true);
-assertEqual(eqObjects(ba, ab), true);
-assertEqual(eqObjects(abInt, ba), false);
-assertEqual(eqObjects(abInt, abcInt), false);
-assertEqual(eqObjects(rocinanteCrew, rocinanteCrewSpoilers), false);
-
-console.log("Array value tests:");
-const cd = { c: "1", d: ["2", 3] };
-const dc = { d: ["2", 3], c: "1" };
-assertEqual(eqObjects(cd, dc), true);
-
-const cd2 = { c: "1", d: ["2", 3, 4] };
-assertEqual(eqObjects(cd, cd2), false);
-
-console.log("Recursive tests:");
-
-const recur1 = { a : 1, b: { c : { d: { e: { f : { g: "2" }}}}}};
-const recur2 = { b: { c : { d: { e: { f : { g: "2" }}}}}, a : { b : 1 }};
-
-assertEqual(eqObjects(recur1, recur2), true);
+describe('#eqObjects', () => {
+  it(`should return true for identical objects, regardless of key order`, () => {
+    const input = { a: "1", b: "2", c: 500 };
+    const comparison = { b: "2", c: 500, a: "1" };
+  
+    assert.isTrue(eqObjects(input, comparison));
+  });
+  it(`should return true for objects with nested objects`, () => {
+    const input = { a : 1, b: { c : { d: { e: { f : { g: "2" }}}}}};
+    const comparison = { b: { c : { d: { e: { f : { g: "2" }}}}}, a : 1 };
+  
+    assert.isTrue(eqObjects(input, comparison));
+  });
+  it(`should return true for objects with nested objects and/or arrays`, () => {
+    const input = { a: [{ b: ['c', 'd'], e: { f: 'g'}}, 'h'], i: 'jkl'};
+    const comparison = { i: 'jkl', a: [{ b: ['c', 'd'], e: { f: 'g'}}, 'h'] };
+  
+    assert.isTrue(eqObjects(input, comparison));
+  });
+  it(`should return undefined for non-object input or no input`, () => {
+    const input = [1, { a: 1 }];
+    const comparison = [1, { a: 1 }];
+    const comparison2 = "1, 2, 3";
+  
+    assert.isUndefined(eqObjects(input, comparison));
+    assert.isUndefined(eqObjects(input, comparison2));
+    assert.isUndefined(eqObjects(input));
+    assert.isUndefined(eqObjects());
+  });
+});
