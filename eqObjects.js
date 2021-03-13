@@ -3,7 +3,7 @@ const eqArrays = require("./eqArrays");
 const eqObjects = function(object1, object2) {
   // Are they both even objects?
   if (!(object1 instanceof Object) || !(object2 instanceof Object)) {
-    return false;
+    return undefined;
   }
   
   const obj1Keys = Object.keys(object1);
