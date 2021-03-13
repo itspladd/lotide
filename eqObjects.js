@@ -2,7 +2,10 @@ const eqArrays = require("./eqArrays");
 
 const eqObjects = function(object1, object2) {
   // Are they both even objects?
-  if (!(object1 instanceof Object) || !(object2 instanceof Object)) {
+  if (!(object1 instanceof Object)
+    || !(object2 instanceof Object)
+    || object1 instanceof Array
+    || object2 instanceof Array) {
     return undefined;
   }
   
